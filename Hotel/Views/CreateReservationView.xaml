@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="Hotel.Views.CreateReservationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hotel.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="ФИО клиента" FontSize="20" HorizontalAlignment="Center"/>
+                <TextBox FontSize="20" Width="200" Margin="0 10 0 0" Text="{Binding FullName}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Телефон клиента" FontSize="20" HorizontalAlignment="Center"/>
+                <TextBox FontSize="20" Width="200" Margin="0 10 0 0" Text="{Binding Phone}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Email клиента" FontSize="20" HorizontalAlignment="Center"/>
+                <TextBox FontSize="20" Width="200" Margin="0 10 0 0" Text="{Binding Email}"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Номер" FontSize="20" HorizontalAlignment="Center"/>
+                <ComboBox FontSize="20" Width="100" Margin="0 10 0 0" ItemsSource="{Binding Numbers}" SelectedItem="{Binding SelectedRoom}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Этаж" FontSize="20" HorizontalAlignment="Center"/>
+                <TextBlock FontSize="20" Margin="0 10 0 0" HorizontalAlignment="Center" Text="{Binding SelectedFloor.Name}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Тип" FontSize="20" HorizontalAlignment="Center"/>
+                <TextBlock FontSize="20" Margin="0 10 0 0" HorizontalAlignment="Center" Text="{Binding SelectedRoomType.Name}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Цена" FontSize="20" HorizontalAlignment="Center"/>
+                <TextBlock FontSize="20" Margin="0 10 0 0" HorizontalAlignment="Center" Text="{Binding CostPerNight}"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="3" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Дата заезда" FontSize="20" HorizontalAlignment="Center"/>
+                <DatePicker FontSize="20" Width="200" Margin="0 10 0 0" SelectedDate="{Binding ArrivalDate}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Дата выезда" FontSize="20" HorizontalAlignment="Center"/>
+                <DatePicker FontSize="20" Width="200" Margin="0 10 0 0" SelectedDate="{Binding DepartureDate}"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="4" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Принять" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"
+    Width="200" Height="55" Command="{Binding CreateReservationCommand}"/>
+            <Button Grid.Column="1" Content="Отмена" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"
+    Width="200" Height="55" Command="{Binding CancelCommand}"/>
+        </Grid>
+    </Grid>
+</UserControl>
